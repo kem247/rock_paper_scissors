@@ -1,0 +1,66 @@
+<html>
+<head>
+<title> Rock, Paper, Scissors </title>
+</head>
+<body>
+  <script>
+    function computerPlay() {
+      return ("Rock"|| "Paper" || "Scissors");
+    }
+    function playerPick(pick){
+      pick.toLowerCase();
+      if(pick === "rock"){
+        return "rock";
+      }else if(pick === "paper"){
+        return "paper";
+      } else if(pick === "scissors"){
+        return "scissors";
+      } else {
+        alert("You can only pick rock, paper, or scissors!")
+      }
+    }
+    
+    function playRound(playerSelection, computerSelection) {
+      let winner;
+      if(computerSelection == playerSelection){
+        winner = 0;
+      } else if( playerSelection === "paper"){
+        if(computerSelection === "scissors") {
+          winner = 0;
+        } else if(computerSelection === "rock") {
+          winner = 1;
+        }
+      }
+      else if(playerSelection === "rock"){
+        if(computerSelection === "paper"){
+          winner = 0;
+        } else if(computerSelection === "scissors" ){
+          winner = 1;
+        }
+      }
+      else if(playerSelection = "scissors"){
+        if(computerSelection = "rock"){
+          winner = 0;
+        } else if(computerSelection === "paper"){
+          winner = 1;
+        }
+      }
+      return winner;
+    }
+    function game() {
+      const computerPick = computerPlay();
+      for(var i = 0; i <=5; i++){
+        let pick = prompt("This is round " + i + " Rock, Paper, or Scissors?")
+        let round = playRound(playerPick(pick),computerPick)
+      } if(round === 0){
+        return "You lose " + computerPick + " beats " + pick + "!";
+      } else if(round === 1){
+        return "You win " + pick + " beats " + computerPick + "!";
+      } else if( round === 2) {
+        return "It's a draw!"
+      }
+      game();
+    }
+
+    </script>
+</html>
